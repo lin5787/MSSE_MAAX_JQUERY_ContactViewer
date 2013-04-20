@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2242AB43172351A500ECA06D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242AB42172351A500ECA06D /* UIKit.framework */; };
+		2242AB45172351A500ECA06D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242AB44172351A500ECA06D /* Foundation.framework */; };
+		2242AB47172351A500ECA06D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2242AB46172351A500ECA06D /* CoreGraphics.framework */; };
+		2242AB4D172351A500ECA06D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2242AB4B172351A500ECA06D /* InfoPlist.strings */; };
+		2242AB4F172351A500ECA06D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2242AB4E172351A500ECA06D /* main.m */; };
+		2242AB53172351A500ECA06D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2242AB52172351A500ECA06D /* AppDelegate.m */; };
+		2242AB55172351A500ECA06D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2242AB54172351A500ECA06D /* Default.png */; };
+		2242AB57172351A500ECA06D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2242AB56172351A500ECA06D /* Default@2x.png */; };
+		2242AB59172351A500ECA06D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2242AB58172351A500ECA06D /* Default-568h@2x.png */; };
+		2242AB5C172351A500ECA06D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2242AB5B172351A500ECA06D /* ViewController.m */; };
+		2242AB5F172351A500ECA06D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2242AB5D172351A500ECA06D /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2242AB3F172351A500ECA06D /* ContactViewerJQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactViewerJQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2242AB42172351A500ECA06D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2242AB44172351A500ECA06D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2242AB46172351A500ECA06D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2242AB4A172351A500ECA06D /* ContactViewerJQuery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContactViewerJQuery-Info.plist"; sourceTree = "<group>"; };
+		2242AB4C172351A500ECA06D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2242AB4E172351A500ECA06D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2242AB50172351A500ECA06D /* ContactViewerJQuery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContactViewerJQuery-Prefix.pch"; sourceTree = "<group>"; };
+		2242AB51172351A500ECA06D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2242AB52172351A500ECA06D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2242AB54172351A500ECA06D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2242AB56172351A500ECA06D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2242AB58172351A500ECA06D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2242AB5A172351A500ECA06D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2242AB5B172351A500ECA06D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2242AB5E172351A500ECA06D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2242AB3C172351A500ECA06D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2242AB43172351A500ECA06D /* UIKit.framework in Frameworks */,
+				2242AB45172351A500ECA06D /* Foundation.framework in Frameworks */,
+				2242AB47172351A500ECA06D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2242AB36172351A500ECA06D = {
+			isa = PBXGroup;
+			children = (
+				2242AB48172351A500ECA06D /* ContactViewerJQuery */,
+				2242AB41172351A500ECA06D /* Frameworks */,
+				2242AB40172351A500ECA06D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2242AB40172351A500ECA06D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2242AB3F172351A500ECA06D /* ContactViewerJQuery.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2242AB41172351A500ECA06D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2242AB42172351A500ECA06D /* UIKit.framework */,
+				2242AB44172351A500ECA06D /* Foundation.framework */,
+				2242AB46172351A500ECA06D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2242AB48172351A500ECA06D /* ContactViewerJQuery */ = {
+			isa = PBXGroup;
+			children = (
+				2242AB51172351A500ECA06D /* AppDelegate.h */,
+				2242AB52172351A500ECA06D /* AppDelegate.m */,
+				2242AB5A172351A500ECA06D /* ViewController.h */,
+				2242AB5B172351A500ECA06D /* ViewController.m */,
+				2242AB5D172351A500ECA06D /* ViewController.xib */,
+				2242AB49172351A500ECA06D /* Supporting Files */,
+			);
+			path = ContactViewerJQuery;
+			sourceTree = "<group>";
+		};
+		2242AB49172351A500ECA06D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2242AB4A172351A500ECA06D /* ContactViewerJQuery-Info.plist */,
+				2242AB4B172351A500ECA06D /* InfoPlist.strings */,
+				2242AB4E172351A500ECA06D /* main.m */,
+				2242AB50172351A500ECA06D /* ContactViewerJQuery-Prefix.pch */,
+				2242AB54172351A500ECA06D /* Default.png */,
+				2242AB56172351A500ECA06D /* Default@2x.png */,
+				2242AB58172351A500ECA06D /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2242AB3E172351A500ECA06D /* ContactViewerJQuery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2242AB62172351A500ECA06D /* Build configuration list for PBXNativeTarget "ContactViewerJQuery" */;
+			buildPhases = (
+				2242AB3B172351A500ECA06D /* Sources */,
+				2242AB3C172351A500ECA06D /* Frameworks */,
+				2242AB3D172351A500ECA06D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContactViewerJQuery;
+			productName = ContactViewerJQuery;
+			productReference = 2242AB3F172351A500ECA06D /* ContactViewerJQuery.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2242AB37172351A500ECA06D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "XIN LIN";
+			};
+			buildConfigurationList = 2242AB3A172351A500ECA06D /* Build configuration list for PBXProject "ContactViewerJQuery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2242AB36172351A500ECA06D;
+			productRefGroup = 2242AB40172351A500ECA06D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2242AB3E172351A500ECA06D /* ContactViewerJQuery */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2242AB3D172351A500ECA06D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2242AB4D172351A500ECA06D /* InfoPlist.strings in Resources */,
+				2242AB55172351A500ECA06D /* Default.png in Resources */,
+				2242AB57172351A500ECA06D /* Default@2x.png in Resources */,
+				2242AB59172351A500ECA06D /* Default-568h@2x.png in Resources */,
+				2242AB5F172351A500ECA06D /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2242AB3B172351A500ECA06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2242AB4F172351A500ECA06D /* main.m in Sources */,
+				2242AB53172351A500ECA06D /* AppDelegate.m in Sources */,
+				2242AB5C172351A500ECA06D /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2242AB4B172351A500ECA06D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2242AB4C172351A500ECA06D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2242AB5D172351A500ECA06D /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2242AB5E172351A500ECA06D /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2242AB60172351A500ECA06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2242AB61172351A500ECA06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2242AB63172351A500ECA06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContactViewerJQuery/ContactViewerJQuery-Prefix.pch";
+				INFOPLIST_FILE = "ContactViewerJQuery/ContactViewerJQuery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2242AB64172351A500ECA06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContactViewerJQuery/ContactViewerJQuery-Prefix.pch";
+				INFOPLIST_FILE = "ContactViewerJQuery/ContactViewerJQuery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2242AB3A172351A500ECA06D /* Build configuration list for PBXProject "ContactViewerJQuery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2242AB60172351A500ECA06D /* Debug */,
+				2242AB61172351A500ECA06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2242AB62172351A500ECA06D /* Build configuration list for PBXNativeTarget "ContactViewerJQuery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2242AB63172351A500ECA06D /* Debug */,
+				2242AB64172351A500ECA06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2242AB37172351A500ECA06D /* Project object */;
+}
