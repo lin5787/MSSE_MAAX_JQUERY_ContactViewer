@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>My JQM Demo</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<style>
+            html, body
+            {
+                height: 100%;
+            }
+            
+            .ui-content {
+                height: 800px;
+            }
+			.ui-page { -webkit-backface-visibility: hidden; }
+			.ui-bar-a {
+				border: 1px solid #a00045 /*{a-bar-border}*/;
+				background: #a00045 /*{a-bar-background-color}*/;
+				color: #ffffff /*{a-bar-color}*/;
+				font-weight: bold;
+				text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #444444 /*{a-bar-shadow-color}*/;
+				background-image: -webkit-gradient(linear, left top, left bottom, from( #de005f /*{a-bar-background-start}*/), to( #61002a /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
+				background-image: -webkit-linear-gradient( #de005f /*{a-bar-background-start}*/, #61002a /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+				background-image:    -moz-linear-gradient( #de005f /*{a-bar-background-start}*/, #61002a /*{a-bar-background-end}*/); /* FF3.6 */
+				background-image:     -ms-linear-gradient( #de005f /*{a-bar-background-start}*/, #61002a /*{a-bar-background-end}*/); /* IE10 */
+				background-image:      -o-linear-gradient( #de005f /*{a-bar-background-start}*/, #61002a /*{a-bar-background-end}*/); /* Opera 11.10+ */
+				background-image:         linear-gradient( #de005f /*{a-bar-background-start}*/, #61002a /*{a-bar-background-end}*/);
+			}			
+			.ui-btn-up-a {
+				border: 1px solid #b11850 /*{a-bup-border}*/;
+				background: #b11850 /*{a-bup-background-color}*/;
+				font-weight: bold;
+				color: #ffffff /*{a-bup-color}*/;
+				text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #444444 /*{a-bup-shadow-color}*/;
+				background-image: -webkit-gradient(linear, left top, left bottom, from( #c21a58 /*{a-bup-background-start}*/), to( #9f1548 /*{a-bup-background-end}*/)); /* Saf4+, Chrome */
+				background-image: -webkit-linear-gradient( #c21a58 /*{a-bup-background-start}*/, #9f1548 /*{a-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+				background-image:    -moz-linear-gradient( #c21a58 /*{a-bup-background-start}*/, #9f1548 /*{a-bup-background-end}*/); /* FF3.6 */
+				background-image:     -ms-linear-gradient( #c21a58 /*{a-bup-background-start}*/, #9f1548 /*{a-bup-background-end}*/); /* IE10 */
+				background-image:      -o-linear-gradient( #c21a58 /*{a-bup-background-start}*/, #9f1548 /*{a-bup-background-end}*/); /* Opera 11.10+ */
+				background-image:         linear-gradient( #c21a58 /*{a-bup-background-start}*/, #9f1548 /*{a-bup-background-end}*/);
+			}
+			.ui-btn-up-a:visited,
+			.ui-btn-up-a a.ui-link-inherit {
+				color: #ffffff /*{a-bup-color}*/;
+			}
+			.ui-btn-hover-a {
+				border: 1px solid #cb1b5c /*{a-bhover-border}*/;
+				background: #cb1b5c /*{a-bhover-background-color}*/;
+				font-weight: bold;
+				color: #ffffff /*{a-bhover-color}*/;
+				text-shadow: 0 /*{a-bhover-shadow-x}*/ 1px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #444444 /*{a-bhover-shadow-color}*/;
+				background-image: -webkit-gradient(linear, left top, left bottom, from( #df1d65 /*{a-bhover-background-start}*/), to( #b61852 /*{a-bhover-background-end}*/)); /* Saf4+, Chrome */
+				background-image: -webkit-linear-gradient( #df1d65 /*{a-bhover-background-start}*/, #b61852 /*{a-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+				background-image:    -moz-linear-gradient( #df1d65 /*{a-bhover-background-start}*/, #b61852 /*{a-bhover-background-end}*/); /* FF3.6 */
+				background-image:     -ms-linear-gradient( #df1d65 /*{a-bhover-background-start}*/, #b61852 /*{a-bhover-background-end}*/); /* IE10 */
+				background-image:      -o-linear-gradient( #df1d65 /*{a-bhover-background-start}*/, #b61852 /*{a-bhover-background-end}*/); /* Opera 11.10+ */
+				background-image:         linear-gradient( #df1d65 /*{a-bhover-background-start}*/, #b61852 /*{a-bhover-background-end}*/);
+			}
+			.ui-btn-hover-a:visited,
+			.ui-btn-hover-a:hover,
+			.ui-btn-hover-a a.ui-link-inherit {
+				color: #ffffff /*{a-bhover-color}*/;
+			}
+			.ui-btn-down-a {
+				border: 1px solid #cb1b5c /*{a-bdown-border}*/;
+				background: #cb1b5c /*{a-bdown-background-color}*/;
+				font-weight: bold;
+				color: #ffffff /*{a-bdown-color}*/;
+				text-shadow: 0 /*{a-bdown-shadow-x}*/ 1px /*{a-bdown-shadow-y}*/ 0 /*{a-bdown-shadow-radius}*/ #444444 /*{a-bdown-shadow-color}*/;
+				background-image: -webkit-gradient(linear, left top, left bottom, from( #d71c61 /*{a-bdown-background-start}*/), to( #be1956 /*{a-bdown-background-end}*/)); /* Saf4+, Chrome */
+				background-image: -webkit-linear-gradient( #d71c61 /*{a-bdown-background-start}*/, #be1956 /*{a-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+				background-image:    -moz-linear-gradient( #d71c61 /*{a-bdown-background-start}*/, #be1956 /*{a-bdown-background-end}*/); /* FF3.6 */
+				background-image:     -ms-linear-gradient( #d71c61 /*{a-bdown-background-start}*/, #be1956 /*{a-bdown-background-end}*/); /* IE10 */
+				background-image:      -o-linear-gradient( #d71c61 /*{a-bdown-background-start}*/, #be1956 /*{a-bdown-background-end}*/); /* Opera 11.10+ */
+				background-image:         linear-gradient( #d71c61 /*{a-bdown-background-start}*/, #be1956 /*{a-bdown-background-end}*/);
+			}
+			.ui-btn-down-a:visited,
+			.ui-btn-down-a:hover,
+			.ui-btn-down-a a.ui-link-inherit {
+				color: #ffffff /*{a-bdown-color}*/;
+			}
+			.ui-btn-up-a,
+			.ui-btn-hover-a,
+			.ui-btn-down-a {
+				 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+				text-decoration: none;
+			}
+			
+			.spinnableDeleteButton
+			{
+				display: inline-block;
+				position: absolute;
+				left: -26px;
+				z-index: 2000;
+				background-color: #cb1b5c;
+			}
+			
+			.ui-btn-up-d {
+				border: 1px solid #666 /*{d-bup-border}*/;
+				background: #c1272d /*{d-bup-background-color}*/;
+				font-weight: bold;
+				color: #ffffff /*{d-bup-color}*/;
+				text-shadow: 0 /*{d-bup-shadow-x}*/ 1px /*{d-bup-shadow-y}*/ 0 /*{d-bup-shadow-radius}*/ #444444 /*{d-bup-shadow-color}*/;
+				background-image: -webkit-gradient(linear, left top, left bottom, from( #ec797e /*{d-bup-background-start}*/), to( #aa0910 /*{d-bup-background-end}*/)); /* Saf4+, Chrome */
+				background-image: -webkit-linear-gradient( #ec797e /*{d-bup-background-start}*/, #aa0910 /*{d-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+				background-image:    -moz-linear-gradient( #ec797e /*{d-bup-background-start}*/, #aa0910 /*{d-bup-background-end}*/); /* FF3.6 */
+				background-image:     -ms-linear-gradient( #ec797e /*{d-bup-background-start}*/, #aa0910 /*{d-bup-background-end}*/); /* IE10 */
+				background-image:      -o-linear-gradient( #ec797e /*{d-bup-background-start}*/, #aa0910 /*{d-bup-background-end}*/); /* Opera 11.10+ */
+				background-image:         linear-gradient( #ec797e /*{d-bup-background-start}*/, #aa0910 /*{d-bup-background-end}*/);
+			}
+			
+			.contactDeleteButtonContainer
+			{
+				position: absolute;
+				top: 1px;
+				bottom: 1px;
+				right: 0px;
+				padding-left: 10px;
+				padding-right: 0px;
+				z-index: 10;
+			}
+			
+			.contactDeleteButtonContainer button
+			{
+				height: 60%;
+				margin-top: 10px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+				font-size: 13px;
+				padding: 4px 12px;
+				border: 1px solid #333;
+			}
+			
+			.ui-grid-a .ui-block-a { width:35%; height:30px; color:#11EEEE;}
+			.ui-grid-a .ui-block-b { width:65%; height:30px; color:#FFFFFF;} 
+			
+			label.ui-input-text {color:#11EEEE;}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script>
+			var _apikey = 'maax'
+			var _contacts = null
+			var _detailItem = null
+			var deleteModeEnabled = false
+			
+			function getContacts(cb)
+			{
+				$.get(
+					'http://contacts.tinyapollo.com/contacts?key=' + _apikey,
+					function(data) {
+						_contacts = data.contacts
+						cb()
+					},
+                    'json'
+				)
+			}
+			
+			function deleteContact(contactid, cb)
+			{
+				$.ajax({
+					url: 'http://contacts.tinyapollo.com/contacts/' + contactid +'?key=' + _apikey,
+					type: 'DELETE',
+					success: function(result) {
+						cb();
+					}
+				});
+			}
+			
+			function getContact(contactid, cb)
+			{
+				$.get(
+					 'http://contacts.tinyapollo.com/contacts/' + contactid +'?key=' + _apikey,
+					function(data) {
+						_detailItem = data.contact
+						cb()
+					},
+                    'json'
+				)				
+			}
+			
+			
+			function updateContact(contactid, cb)
+			{
+				$.ajax({
+					url: 'http://contacts.tinyapollo.com/contacts/' + contactid +'?key=' + _apikey,
+					type: 'PUT',
+					data: {
+							name: $('#editName').val(),
+							phone: $('#editPhone').val(),
+							title: $('#editTitle').val(),
+							email: $('#editEmail').val(),
+							twitterId: $('#editTwitterId').val()
+						  },
+					success: function(result) {
+						cb();
+					}
+				});
+			}
+			
+			function addContacts(cb)
+			{
+				$.post(
+					'http://contacts.tinyapollo.com/contacts?key=' + _apikey,
+					{
+						name: $('#editName').val(),
+						phone: $('#editPhone').val(),
+						title: $('#editTitle').val(),
+						email: $('#editEmail').val(),
+						twitterId: $('#editTwitterId').val()
+					  },
+					function(data) {
+						cb()
+					}
+				)
+			}
+			
+			var deleteContactListItem = function (listItem) {
+					deleteContact(listItem.attr('contactid'), function(){
+						var documentWidth = $(document).width()
+						listItem.animate({ right: documentWidth + 'px' }, 500, function () {
+							listItem.animate({ height: '0' }, 500, function () {
+								listItem.remove();
+							})
+						})
+					}
+				)
+			};
+			
+			var showContactDeleteButton = function(contactItem) {
+				var container = $('#contact-list .contactDeleteButtonContainer')
+				if (container.length != 0)
+					return
+					
+				var newButton = $('<button class="deleteContactButton ui-btn-up-d">')
+				newButton.text('Delete')
+				newButton.on('vclick', function() {
+					deleteContactListItem(contactItem)
+					return false
+				})
+				var newContainer = $('<span class="contactDeleteButtonContainer">')
+				newContainer.css('right', '-130px')
+				newContainer.append(newButton)
+				contactItem.append(newContainer)
+		
+				newContainer.animate({ right: '0' }, 250, 'linear', function () {
+					$(document).on('vclick', function() {
+						removeContactDeleteButton()
+						resetSpinnableDeleteButton($('#contact-list .spinnableDeleteButton.clicked'))
+					})
+				})
+			}
+			
+			var removeContactDeleteButton = function() {
+				var container = $('#contact-list .contactDeleteButtonContainer')
+				if (container.length == 0)
+					return
+				
+				container.animate({ width: "hide", opacity: 0 }, 250, 'linear', function () {
+					container.remove()
+				})
+			}
+			
+			var rotate = function(icon, newAngleDegs) {
+				icon.animate({ textIndent: newAngleDegs }, {
+					step: function (now) {
+						icon.css('-webkit-transform', 'rotate(' + now + 'deg)')
+						icon.css('transform', 'rotate(' + now + 'deg)')
+					},
+					duration: 250
+				}, 'linear')
+			}
+			
+			var spinnableDeleteButtonClickHandler = function(e) {
+				var button = $(this)
+				if (!button.hasClass('clicked')) {
+					spinSpinnableDeleteButton(button)
+				} else {
+					resetSpinnableDeleteButton(button)
+				}
+				e.stopPropagation()
+			}
+			
+			var spinSpinnableDeleteButton = function (button) {
+				var others = $('#contact-list .spinnableDeleteButton.clicked')
+				if (others.length == 0) {
+					rotate(button, 90)
+					showContactDeleteButton(button.parents('li'))
+					button.addClass('clicked')
+				} else {
+					resetSpinnableDeleteButton(others)
+				}
+			}
+			
+			var resetSpinnableDeleteButton = function (button) {
+				rotate(button, 0)
+				removeContactDeleteButton()
+				button.removeClass('clicked')
+			}
+			
+			var enterDeleteMode = function() {
+				deleteModeEnabled = true
+			
+				var contactList = $('#contact-list')
+				$('#deleteContactButton').find('.ui-btn-text').text('Done')
+				//switchTheme($('#deleteContactButton'), 'b')
+			
+				contactList.find('.ui-btn-text').animate({ paddingLeft: '34px' })
+				contactList.find('.spinnableDeleteButton').animate({ left: '8px' });
+				contactList.find('.spinnableDeleteButton').unbind('vclick');
+				contactList.find('.spinnableDeleteButton').on('vclick', spinnableDeleteButtonClickHandler)
+			}
+			
+			var exitDeleteMode = function () {
+				var contactList = $('#contact-list')
+				
+				$('#deleteContactButton').find('.ui-btn-text').text('Del')
+				//switchTheme($('#editAllTasksButton'), 'c')
+				contactList.find('.ui-btn-text').animate({ paddingLeft: '0px' })
+				contactList.find('.spinnableDeleteButton').animate({ left: '-26px' }).off('click')
+				contactList.find('.ui-li-link-alt').animate({ right: '-42px' }).hide()
+				contactList.find('.duration ').animate({ right: '10px', opacity: 1 })
+		
+				deleteModeEnabled = false
+			}
+			
+			var deleteContactButtonClickHandler = function (e) {
+				if (!deleteModeEnabled) {
+					enterDeleteMode()
+				} else {
+					exitDeleteMode()
+				}
+                e.stopPropagation()
+			}
+			
+			var addButtonClickHandler = function(e){
+			
+				$('#edit').attr('contactid', '')
+				$.mobile.changePage('#edit', {
+					transition: "slide"
+				})
+                e.stopPropagation()
+			}
+			
+			
+			$(document).on('pageinit', '#master', function(){
+					$('#deleteContactButton').on('vclick', deleteContactButtonClickHandler)
+					$('#addButton').on('vclick', addButtonClickHandler)
+				}
+			)
+			
+			function createTaskListItem(contact) {
+        
+				var selectLinkElement = $('<a>')
+		
+				selectLinkElement.append('<a href="#" class="spinnableDeleteButton ui-icon ui-icon-minus ui-icon-shadow" data-role="none">')
+				selectLinkElement.append('<span>' + contact.name + '</span>')
+		
+				selectLinkElement.on('vclick', function () {
+					if(!deleteModeEnabled)
+					{
+						$('#detail').attr('contactid', contact._id)
+						$.mobile.changePage('#detail', {
+							transition: "slide"
+						})
+					}
+				})
+					   
+				var contactElement = $('<li>')
+				contactElement.attr('contactid', contact._id)
+				contactElement.append(selectLinkElement)	
+				return contactElement
+			}
+				
+			$(document).on("pagebeforeshow", "#master", function()
+					{
+						var contactList = $("#contact-list")
+						contactList.html('')
+						getContacts(function() {
+							for (var i in _contacts) {
+								var contact = _contacts[i]
+								contactList.append(createTaskListItem(contact))
+							}
+							
+							contactList.listview('refresh')
+						}
+					)	
+				}
+			)
+            
+            $(document).on("pageshow", "#master", function(){
+                $("#contact-list").trigger("vclick")
+            })
+			
+			var editButtonClickHandler = function(e){
+			
+				$('#edit').attr('contactid', $('#detail').attr('contactid'))
+				$.mobile.changePage('#edit', {
+					transition: "slidedown"
+				})
+                e.stopPropagation()
+			}
+			
+			
+			
+			$(document).on('pageinit', '#detail', function()
+					{$('#editButton').on('vclick', editButtonClickHandler)
+				}
+			)
+			  
+			$(document).on("pagebeforeshow", "#detail", function() {
+				getContact($("#detail").attr('contactid'), function(){
+					$("#detailName").html(_detailItem.name);
+					$("#detailPhone").html(_detailItem.phone);
+					$("#detailTitle").html(_detailItem.title);
+					$("#detailEmail").html(_detailItem.email);
+					$("#detailTwitterId").html(_detailItem.twitterId);           			
+				})
+					
+			})
+			
+			$(document).on("pageshow", "#detail", function() {
+					$("#detailName").trigger("vclick");      			
+				})
+			  
+			var editDoneButtonClickHandler = function(e)
+			{
+				updateContact($("#edit").attr('contactid'), function()
+				{
+					$.mobile.changePage('#detail', {
+							transition: "slideup"
+					})
+				})
+                e.stopPropagation()
+			}
+			  
+			var editDoneButtonClickHandler = function(e)
+			{  	
+				if($("#edit").attr('contactid') != '')
+				{
+					updateContact($("#edit").attr('contactid'), function()
+					{
+						$.mobile.changePage('#detail', {
+								transition: "slideup"
+						})
+					})
+				}
+				else
+				{
+					addContacts(function(){
+									$.mobile.changePage('#master', {
+												transition: "slide",
+												reverse: true
+										})
+					})
+				}
+                e.stopPropagation()
+			}
+			  
+			$(document).on('pageinit', '#edit', function()
+					{$('#editDoneButton').on('vclick', editDoneButtonClickHandler)
+				}
+			)
+				
+			$(document).on("pagebeforeshow", "#edit", function() {
+				if($("#edit").attr('contactid') != '')
+				{
+					getContact($("#edit").attr('contactid'), function(){
+						$("#editName").val(_detailItem.name);
+						$("#editPhone").val(_detailItem.phone);
+						$("#editTitle").val(_detailItem.title);
+						$("#editEmail").val(_detailItem.email);
+						$("#editTwitterId").val(_detailItem.twitterId)           			
+					})
+				}
+				else
+				{
+					$("input[name^='edit']").val('')
+				}	
+			})
+            
+            $(document).on("pageshow", "#edit", function() {
+                $("label[for='editName']").trigger("vclick");
+                $("#editName").focus();
+            })
+			 
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="master">
+			<div data-role="header" data-position="fixed">
+				<a href="#" id="deleteContactButton" data-role="button" data-mini="true" data-icon="delete" data-mini="true">Del</a>
+				<h1>Contact List</h1>
+				 <a href="#" id="addButton" data-role="button" data-icon="plus" data-iconpos="notext">Add</a>
+			</div>
+			<div data-role="content">
+				<ul id="contact-list" data-role="listview" data-split-icon="arrow-r" data-split-theme="a">
+					<li>
+						<a href="#">List Item 1</a>
+					</li>
+					<li>
+						<a href="#">List Item 2</a>
+					</li>
+				</ul>
+			</div>
+        </div>
+		<div data-role="page" id="detail">
+			<div data-role="header" data-position="fixed">
+				<a href="#master" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide">Home</a>
+				<h1>Contact Detail</h1>
+				<a href="#edit" data-icon="gear" data-transition="slidedown" id="editButton">Edit</a>
+			</div>
+			<div data-role="content" style="background-color:#000000;">
+				<div class="ui-grid-a">
+                    <div class="ui-block-a">Name</div>
+                    <div class="ui-block-b" id="detailName">Name goes here</div>
+                    
+                    <div class="ui-block-a">Phone</div>
+                    <div class="ui-block-b" id="detailPhone">Phone goes here</div>
+                    
+                    <div class="ui-block-a">Title</div>
+                    <div class="ui-block-b" id="detailTitle">Title goes here</div>
+                    
+                    <div class="ui-block-a">Email</div>
+                    <div class="ui-block-b" id="detailEmail">Email goes here</div>
+                    
+                    <div class="ui-block-a">Twitter</div>
+                    <div class="ui-block-b" id="detailTwitterId">Twitter goes here</div>
+                </div>
+			</div>
+		</div>
+		<div data-role="page" id="edit">
+			<div data-role="header" data-position="fixed">
+				<h1>Contact Detail</h1>
+				<a data-icon="check" class="ui-btn-right" id="editDoneButton">Done</a>
+			</div>
+			<div data-role="content" style="background-color:#000000;">
+				<div data-role="fieldcontain">
+					<label for="editName">Name</label>
+					<input type="text" name="editName" id="editName" value="" />
+			   </div>
+			   
+			   <div data-role="fieldcontain">
+					<label for="editPhone">Phone</label>
+					<input type="tel" data-mini="true" name="editPhone" id="editPhone" value="" />
+			   </div>
+			   
+			   <div data-role="fieldcontain">
+					<label for="editTitle">Title</label>
+					<input type="text" data-mini="true" name="editTitle" id="editTitle" value="" />
+			   </div>
+			   
+			   <div data-role="fieldcontain">
+					<label for="editEmail">Email</label>
+					<input type="email" data-mini="true" name="editEmail" id="editEmail" value="" />
+			   </div>
+			   
+			   <div data-role="fieldcontain">
+					<label for="editTwitterId">Twitter</label>
+					<input type="text" data-mini="true" name="editTwitterId" id="editTwitterId" value="" />
+			   </div>
+
+			</div>
+		</div>
+	</body>
+</html>

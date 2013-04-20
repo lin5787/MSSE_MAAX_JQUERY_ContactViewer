@@ -17,7 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
+    [_webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +29,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_webView release];
+    [super dealloc];
+}
 @end
