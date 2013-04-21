@@ -2,13 +2,20 @@
 <html>
 	<head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes"/>
 		<title>My JQM Demo</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
 		<style>
             html, body
             {
+                height: 100%;
+                margin: 0;
+            }
+            
+            #container {
+                position: absolute;
+                width: 100%;
                 height: 100%;
             }
             
@@ -146,6 +153,12 @@
 			var _contacts = null
 			var _detailItem = null
 			var deleteModeEnabled = false
+            
+            $(document).on("mobileinit", function () {
+            
+            // Setting #container div as a jqm pageContainer
+            $.mobile.pageContainer = $('#container');
+            });
 			
 			function getContacts(cb)
 			{
@@ -327,31 +340,32 @@
 				deleteModeEnabled = false
 			}
 			
-			var deleteContactButtonClickHandler = function (e) {
+			var deleteContactButtonClickHandler = function () {
 				if (!deleteModeEnabled) {
 					enterDeleteMode()
 				} else {
 					exitDeleteMode()
 				}
-                e.stopPropagation()
 			}
 			
-			var addButtonClickHandler = function(e){
+			var addButtonClickHandler = function(){
 			
 				$('#edit').attr('contactid', '')
 				$.mobile.changePage('#edit', {
 					transition: "slide"
 				})
-                e.stopPropagation()
 			}
 			
-			
-			$(document).on('pageinit', '#master', function(){
-					$('#deleteContactButton').on('vclick', deleteContactButtonClickHandler)
-					$('#addButton').on('vclick', addButtonClickHandler)
-				}
-			)
-			
+            var contactItemClickHandler = function(contactId) {
+                if(!deleteModeEnabled)
+                {
+                    $('#detail').attr('contactid', contactId)
+                    $.mobile.changePage('#detail', {
+                                        transition: "slide"
+                                        })
+                }
+            }
+            
 			function createTaskListItem(contact) {
         
 				var selectLinkElement = $('<a>')
@@ -359,15 +373,7 @@
 				selectLinkElement.append('<a href="#" class="spinnableDeleteButton ui-icon ui-icon-minus ui-icon-shadow" data-role="none">')
 				selectLinkElement.append('<span>' + contact.name + '</span>')
 		
-				selectLinkElement.on('vclick', function () {
-					if(!deleteModeEnabled)
-					{
-						$('#detail').attr('contactid', contact._id)
-						$.mobile.changePage('#detail', {
-							transition: "slide"
-						})
-					}
-				})
+				selectLinkElement.prop("href", "javascript:contactItemClickHandler('" + contact._id + "')")
 					   
 				var contactElement = $('<li>')
 				contactElement.attr('contactid', contact._id)
@@ -390,27 +396,15 @@
 					)	
 				}
 			)
-            
-            $(document).on("pageshow", "#master", function(){
-                $("#contact-list").trigger("vclick")
-            })
 			
-			var editButtonClickHandler = function(e){
+			var editButtonClickHandler = function(){
 			
 				$('#edit').attr('contactid', $('#detail').attr('contactid'))
 				$.mobile.changePage('#edit', {
-					transition: "slidedown"
+					transition: "flip"
 				})
-                e.stopPropagation()
-			}
+            }
 			
-			
-			
-			$(document).on('pageinit', '#detail', function()
-					{$('#editButton').on('vclick', editButtonClickHandler)
-				}
-			)
-			  
 			$(document).on("pagebeforeshow", "#detail", function() {
 				getContact($("#detail").attr('contactid'), function(){
 					$("#detailName").html(_detailItem.name);
@@ -421,30 +415,16 @@
 				})
 					
 			})
-			
-			$(document).on("pageshow", "#detail", function() {
-					$("#detailName").trigger("vclick");      			
-				})
 			  
-			var editDoneButtonClickHandler = function(e)
-			{
-				updateContact($("#edit").attr('contactid'), function()
-				{
-					$.mobile.changePage('#detail', {
-							transition: "slideup"
-					})
-				})
-                e.stopPropagation()
-			}
-			  
-			var editDoneButtonClickHandler = function(e)
+			var editDoneButtonClickHandler = function()
 			{  	
 				if($("#edit").attr('contactid') != '')
 				{
 					updateContact($("#edit").attr('contactid'), function()
 					{
 						$.mobile.changePage('#detail', {
-								transition: "slideup"
+								transition: "flip",
+                                reverse: true
 						})
 					})
 				}
@@ -457,14 +437,8 @@
 										})
 					})
 				}
-                e.stopPropagation()
 			}
 			  
-			$(document).on('pageinit', '#edit', function()
-					{$('#editDoneButton').on('vclick', editDoneButtonClickHandler)
-				}
-			)
-				
 			$(document).on("pagebeforeshow", "#edit", function() {
 				if($("#edit").attr('contactid') != '')
 				{
@@ -473,7 +447,7 @@
 						$("#editPhone").val(_detailItem.phone);
 						$("#editTitle").val(_detailItem.title);
 						$("#editEmail").val(_detailItem.email);
-						$("#editTwitterId").val(_detailItem.twitterId)           			
+						$("#editTwitterId").val(_detailItem.twitterId)
 					})
 				}
 				else
@@ -481,89 +455,87 @@
 					$("input[name^='edit']").val('')
 				}	
 			})
-            
-            $(document).on("pageshow", "#edit", function() {
-                $("label[for='editName']").trigger("vclick");
-                $("#editName").focus();
-            })
+    
 			 
 		</script>
 	</head>
 	<body>
-		<div data-role="page" id="master">
-			<div data-role="header" data-position="fixed">
-				<a href="#" id="deleteContactButton" data-role="button" data-mini="true" data-icon="delete" data-mini="true">Del</a>
-				<h1>Contact List</h1>
-				 <a href="#" id="addButton" data-role="button" data-icon="plus" data-iconpos="notext">Add</a>
-			</div>
-			<div data-role="content">
-				<ul id="contact-list" data-role="listview" data-split-icon="arrow-r" data-split-theme="a">
-					<li>
-						<a href="#">List Item 1</a>
-					</li>
-					<li>
-						<a href="#">List Item 2</a>
-					</li>
-				</ul>
-			</div>
-        </div>
-		<div data-role="page" id="detail">
-			<div data-role="header" data-position="fixed">
-				<a href="#master" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide">Home</a>
-				<h1>Contact Detail</h1>
-				<a href="#edit" data-icon="gear" data-transition="slidedown" id="editButton">Edit</a>
-			</div>
-			<div data-role="content" style="background-color:#000000;">
-				<div class="ui-grid-a">
-                    <div class="ui-block-a">Name</div>
-                    <div class="ui-block-b" id="detailName">Name goes here</div>
-                    
-                    <div class="ui-block-a">Phone</div>
-                    <div class="ui-block-b" id="detailPhone">Phone goes here</div>
-                    
-                    <div class="ui-block-a">Title</div>
-                    <div class="ui-block-b" id="detailTitle">Title goes here</div>
-                    
-                    <div class="ui-block-a">Email</div>
-                    <div class="ui-block-b" id="detailEmail">Email goes here</div>
-                    
-                    <div class="ui-block-a">Twitter</div>
-                    <div class="ui-block-b" id="detailTwitterId">Twitter goes here</div>
+        <div id="container">
+            <div data-role="page" id="master">
+                <div data-role="header" data-position="fixed">
+                    <a href="javascript:deleteContactButtonClickHandler()" id="deleteContactButton" data-role="button" data-mini="true" data-icon="delete" data-mini="true">Del</a>
+                    <h1>Contact List</h1>
+                     <a href="javascript:addButtonClickHandler()" id="addButton" data-role="button" data-icon="plus" data-iconpos="notext">Add</a>
                 </div>
-			</div>
-		</div>
-		<div data-role="page" id="edit">
-			<div data-role="header" data-position="fixed">
-				<h1>Contact Detail</h1>
-				<a data-icon="check" class="ui-btn-right" id="editDoneButton">Done</a>
-			</div>
-			<div data-role="content" style="background-color:#000000;">
-				<div data-role="fieldcontain">
-					<label for="editName">Name</label>
-					<input type="text" name="editName" id="editName" value="" />
-			   </div>
-			   
-			   <div data-role="fieldcontain">
-					<label for="editPhone">Phone</label>
-					<input type="tel" data-mini="true" name="editPhone" id="editPhone" value="" />
-			   </div>
-			   
-			   <div data-role="fieldcontain">
-					<label for="editTitle">Title</label>
-					<input type="text" data-mini="true" name="editTitle" id="editTitle" value="" />
-			   </div>
-			   
-			   <div data-role="fieldcontain">
-					<label for="editEmail">Email</label>
-					<input type="email" data-mini="true" name="editEmail" id="editEmail" value="" />
-			   </div>
-			   
-			   <div data-role="fieldcontain">
-					<label for="editTwitterId">Twitter</label>
-					<input type="text" data-mini="true" name="editTwitterId" id="editTwitterId" value="" />
-			   </div>
+                <div data-role="content">
+                    <ul id="contact-list" data-role="listview" data-split-icon="arrow-r" data-split-theme="a">
+                        <li>
+                            <a href="#">List Item 1</a>
+                        </li>
+                        <li>
+                            <a href="#">List Item 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="page" id="detail">
+                <div data-role="header" data-position="fixed">
+                    <a href="#master" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide">Home</a>
+                    <h1>Contact Detail</h1>
+                    <a href="javascript:editButtonClickHandler()" data-icon="gear" id="editButton">Edit</a>
+                </div>
+                <div data-role="content" style="background-color:#000000;">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">Name</div>
+                        <div class="ui-block-b" id="detailName">Name goes here</div>
+                        
+                        <div class="ui-block-a">Phone</div>
+                        <div class="ui-block-b" id="detailPhone">Phone goes here</div>
+                        
+                        <div class="ui-block-a">Title</div>
+                        <div class="ui-block-b" id="detailTitle">Title goes here</div>
+                        
+                        <div class="ui-block-a">Email</div>
+                        <div class="ui-block-b" id="detailEmail">Email goes here</div>
+                        
+                        <div class="ui-block-a">Twitter</div>
+                        <div class="ui-block-b" id="detailTwitterId">Twitter goes here</div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="page" id="edit">
+                <div data-role="header" data-position="fixed">
+                    <h1>Contact Detail</h1>
+                    <a href="javascript:editDoneButtonClickHandler()" data-icon="check" class="ui-btn-right" id="editDoneButton">Done</a>
+                </div>
+                <div data-role="content" style="background-color:#000000;">
+                    <div data-role="fieldcontain">
+                        <label for="editName">Name</label>
+                        <input type="text" name="editName" id="editName" value="" />
+                   </div>
+                   
+                   <div data-role="fieldcontain">
+                        <label for="editPhone">Phone</label>
+                        <input type="tel" data-mini="true" name="editPhone" id="editPhone" value="" />
+                   </div>
+                   
+                   <div data-role="fieldcontain">
+                        <label for="editTitle">Title</label>
+                        <input type="text" data-mini="true" name="editTitle" id="editTitle" value="" />
+                   </div>
+                   
+                   <div data-role="fieldcontain">
+                        <label for="editEmail">Email</label>
+                        <input type="email" data-mini="true" name="editEmail" id="editEmail" value="" />
+                   </div>
+                   
+                   <div data-role="fieldcontain">
+                        <label for="editTwitterId">Twitter</label>
+                        <input type="text" data-mini="true" name="editTwitterId" id="editTwitterId" value="" />
+                   </div>
 
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
 	</body>
 </html>
