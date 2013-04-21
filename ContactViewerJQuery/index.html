@@ -12,13 +12,7 @@
                 height: 100%;
                 margin: 0;
             }
-            
-            #container {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-            
+                    
             .ui-content {
                 height: 800px;
             }
@@ -460,81 +454,79 @@
 		</script>
 	</head>
 	<body>
-        <div id="container">
-            <div data-role="page" id="master">
-                <div data-role="header" data-position="fixed">
-                    <a href="javascript:deleteContactButtonClickHandler()" id="deleteContactButton" data-role="button" data-mini="true" data-icon="delete" data-mini="true">Del</a>
-                    <h1>Contact List</h1>
-                     <a href="javascript:addButtonClickHandler()" id="addButton" data-role="button" data-icon="plus" data-iconpos="notext">Add</a>
-                </div>
-                <div data-role="content">
-                    <ul id="contact-list" data-role="listview" data-split-icon="arrow-r" data-split-theme="a">
-                        <li>
-                            <a href="#">List Item 1</a>
-                        </li>
-                        <li>
-                            <a href="#">List Item 2</a>
-                        </li>
-                    </ul>
+        <div data-role="page" id="master">
+            <div data-role="header" data-position="fixed">
+                <a href="javascript:deleteContactButtonClickHandler()" id="deleteContactButton" data-role="button" data-mini="true" data-icon="delete" data-mini="true">Del</a>
+                <h1>Contact List</h1>
+                 <a href="javascript:addButtonClickHandler()" id="addButton" data-role="button" data-icon="plus" data-iconpos="notext">Add</a>
+            </div>
+            <div data-role="content">
+                <ul id="contact-list" data-role="listview" data-split-icon="arrow-r" data-split-theme="a">
+                    <li>
+                        <a href="#">List Item 1</a>
+                    </li>
+                    <li>
+                        <a href="#">List Item 2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="detail">
+            <div data-role="header" data-position="fixed">
+                <a href="#master" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide">Home</a>
+                <h1>Contact Detail</h1>
+                <a href="javascript:editButtonClickHandler()" data-icon="gear" id="editButton">Edit</a>
+            </div>
+            <div data-role="content" style="background-color:#000000;">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">Name</div>
+                    <div class="ui-block-b" id="detailName">Name goes here</div>
+                    
+                    <div class="ui-block-a">Phone</div>
+                    <div class="ui-block-b" id="detailPhone">Phone goes here</div>
+                    
+                    <div class="ui-block-a">Title</div>
+                    <div class="ui-block-b" id="detailTitle">Title goes here</div>
+                    
+                    <div class="ui-block-a">Email</div>
+                    <div class="ui-block-b" id="detailEmail">Email goes here</div>
+                    
+                    <div class="ui-block-a">Twitter</div>
+                    <div class="ui-block-b" id="detailTwitterId">Twitter goes here</div>
                 </div>
             </div>
-            <div data-role="page" id="detail">
-                <div data-role="header" data-position="fixed">
-                    <a href="#master" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide">Home</a>
-                    <h1>Contact Detail</h1>
-                    <a href="javascript:editButtonClickHandler()" data-icon="gear" id="editButton">Edit</a>
-                </div>
-                <div data-role="content" style="background-color:#000000;">
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">Name</div>
-                        <div class="ui-block-b" id="detailName">Name goes here</div>
-                        
-                        <div class="ui-block-a">Phone</div>
-                        <div class="ui-block-b" id="detailPhone">Phone goes here</div>
-                        
-                        <div class="ui-block-a">Title</div>
-                        <div class="ui-block-b" id="detailTitle">Title goes here</div>
-                        
-                        <div class="ui-block-a">Email</div>
-                        <div class="ui-block-b" id="detailEmail">Email goes here</div>
-                        
-                        <div class="ui-block-a">Twitter</div>
-                        <div class="ui-block-b" id="detailTwitterId">Twitter goes here</div>
-                    </div>
-                </div>
+        </div>
+        <div data-role="page" id="edit">
+            <div data-role="header" data-position="fixed">
+                <h1>Contact Detail</h1>
+                <a href="javascript:editDoneButtonClickHandler()" data-icon="check" class="ui-btn-right" id="editDoneButton">Done</a>
             </div>
-            <div data-role="page" id="edit">
-                <div data-role="header" data-position="fixed">
-                    <h1>Contact Detail</h1>
-                    <a href="javascript:editDoneButtonClickHandler()" data-icon="check" class="ui-btn-right" id="editDoneButton">Done</a>
-                </div>
-                <div data-role="content" style="background-color:#000000;">
-                    <div data-role="fieldcontain">
-                        <label for="editName">Name</label>
-                        <input type="text" name="editName" id="editName" value="" />
-                   </div>
-                   
-                   <div data-role="fieldcontain">
-                        <label for="editPhone">Phone</label>
-                        <input type="tel" data-mini="true" name="editPhone" id="editPhone" value="" />
-                   </div>
-                   
-                   <div data-role="fieldcontain">
-                        <label for="editTitle">Title</label>
-                        <input type="text" data-mini="true" name="editTitle" id="editTitle" value="" />
-                   </div>
-                   
-                   <div data-role="fieldcontain">
-                        <label for="editEmail">Email</label>
-                        <input type="email" data-mini="true" name="editEmail" id="editEmail" value="" />
-                   </div>
-                   
-                   <div data-role="fieldcontain">
-                        <label for="editTwitterId">Twitter</label>
-                        <input type="text" data-mini="true" name="editTwitterId" id="editTwitterId" value="" />
-                   </div>
+            <div data-role="content" style="background-color:#000000;">
+                <div data-role="fieldcontain">
+                    <label for="editName">Name</label>
+                    <input type="text" name="editName" id="editName" value="" />
+               </div>
+               
+               <div data-role="fieldcontain">
+                    <label for="editPhone">Phone</label>
+                    <input type="tel" data-mini="true" name="editPhone" id="editPhone" value="" />
+               </div>
+               
+               <div data-role="fieldcontain">
+                    <label for="editTitle">Title</label>
+                    <input type="text" data-mini="true" name="editTitle" id="editTitle" value="" />
+               </div>
+               
+               <div data-role="fieldcontain">
+                    <label for="editEmail">Email</label>
+                    <input type="email" data-mini="true" name="editEmail" id="editEmail" value="" />
+               </div>
+               
+               <div data-role="fieldcontain">
+                    <label for="editTwitterId">Twitter</label>
+                    <input type="text" data-mini="true" name="editTwitterId" id="editTwitterId" value="" />
+               </div>
 
-                </div>
             </div>
         </div>
 	</body>
